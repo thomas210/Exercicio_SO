@@ -36,7 +36,6 @@ public class Mesa {
 			}
 			else {
 				System.out.println("Filoso "+indice+" não pode comer");
-				this.wait();
 				res = false;
 			}
 		}catch(Exception e) {
@@ -56,7 +55,6 @@ public class Mesa {
 			this.garfos.get(indice-1).liberado();	//SOLTA O GARFO DIREITO
 		}
 		System.out.println("Filoso "+indice+" soltou os garfos");
-		this.notify();
 	}
 	
 	public synchronized void pensar (int indice) {	//FOI PENSAR
