@@ -1,9 +1,9 @@
 package questao1;
 
-public class TesteSenhas2 extends Thread {
+public class TesteSenhaLong extends Thread{
 	private int indice;
 	private int modulo;
-	private String senha = null;
+	private long senha;
 	
 	
 	/*CADA THREAD VAI TESTAR UM NUMERO, CADA UM TESTA UMA SENHA NA ORDEM E DEPOIS VAI PARA O SEGUINTE DA SENHA TESTADA PELA ULTIMA THREAD
@@ -14,24 +14,24 @@ public class TesteSenhas2 extends Thread {
 	 * OBS: APESAR DE PARECER, ESSA ORDEM NAO E SEQUENCIAL POIS CADA THREAD VAI TESTAR NA SUA VEZ E CADA THREAD TESTA UM QUANTIDADE DE SENHAS*/
 	
 	//CONSTRUTOR DA THREAD
-	public TesteSenhas2(int indice, int quantidadeTheards) {
+	public TesteSenhaLong(int indice, int quantidadeTheards) {
 		this.indice = indice;
 		this.modulo = quantidadeTheards;
 		System.out.println(this.indice+" iniciada");
 	}
 	
 	public void run() {
-		long senhaNumber = this.indice;	//O PRIMEIRO NUMERO QUE A THREAD VAI TESTAR E O INDICE DELA
-		while (Main.desconhecido && senhaNumber <= 9999999999L) {	//ENQUANDO NAO ATINGIR O LIMITE MAXIMO OU ENQUANTO A SENHA ESTIVER DESCONHECIDA
-			this.senha = String.format("%010d", senhaNumber);	//PEGAR O TESTE E CONVERTER PARA STRING
-			if (this.senha.equals(Main.senha)) {	//COMPARA SE A O TESTE E IGUAL A SENHA
+		this.senha = this.indice;	//O PRIMEIRO NUMERO QUE A THREAD VAI TESTAR E O INDICE DELA
+		while (Main.desconhecido && this.senha <= 9999999999L) {	//ENQUANDO NAO ATINGIR O LIMITE MAXIMO OU ENQUANTO A SENHA ESTIVER DESCONHECIDA
+			if (this.senha == Long.parseLong(Main.senha)) {	//COMPARA SE A O TESTE E IGUAL A SENHA
 				Main.desconhecido = false;	//SE FOR, A SENHA NAO E MAIS DESCONHECIDA
 				System.out.println("Thread N:"+this.indice+" descobriu a senha\nSenha: "+this.senha);
 				break;
 			}
 			else {
-				senhaNumber = senhaNumber + this.modulo;	//CASO AINDA NAO TENHA ACHADO A SENHA ELE INCREMENTE A THREAD, CADA THREAD TESTA NUMEROS DE ACORDO COM A QUANTIDADE DE THREADS
+				this.senha = this.senha + this.modulo;	//CASO AINDA NAO TENHA ACHADO A SENHA ELE INCREMENTE A THREAD, CADA THREAD TESTA NUMEROS DE ACORDO COM A QUANTIDADE DE THREADS
 			}
 		}
 	}
+
 }

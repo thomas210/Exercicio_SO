@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		Mesa mesa = new Mesa();
 		
+		
 		new Filosofo(0, mesa, 2000).start();
 		new Filosofo(1, mesa, 3000).start();
 		new Filosofo(2, mesa, 4000).start();

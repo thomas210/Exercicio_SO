@@ -18,7 +18,7 @@ public class Filosofo extends Thread{
 				sleep(this.tempo);
 				if (mesa.comer(this.indice)) {	//VAI COMER
 					sleep(this.tempo);
-					mesa.soltarGarfos(this.indice);	//SE CONSEGUIR COMER ENTAO QUANDO ACABAR SOLTA OS GARFOS
+					mesa.soltarGarfos(this.indice);		//SE CONSEGUIR COMER ENTAO QUANDO ACABAR SOLTA OS GARFOS
 				}
 			}catch (Exception e) {
 				

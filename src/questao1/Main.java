@@ -8,9 +8,9 @@ public class Main {
 	//NUMERO MAXIMO DA SENHA = 9.999.999.999
 	
 	public static void main(String[] Args) {
-		int quantidadeThreads = 4;
+		int quantidadeThreads = 3;
 		for (int i = 0; i < quantidadeThreads; i++) {
-			new TesteSenhas2(i, quantidadeThreads).start();
+			new TesteSenhaLong(i, quantidadeThreads).start();
 		}
 	}
 }

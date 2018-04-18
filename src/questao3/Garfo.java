@@ -3,6 +3,7 @@ package questao3;
 public class Garfo {
 	private boolean disponivel;
 	
+	
 	public Garfo() {
 		this.disponivel = true;
 	}

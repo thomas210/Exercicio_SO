@@ -41,7 +41,7 @@ public class Mesa {
 		}catch(Exception e) {
 			
 		}
-		return res;	//RETORNA SE CONSEGUIU COMER
+		return res;	//RETORNA SE CONSEGUIU COMER, SE COMER ELE DEVOLVE OS GARFO
 		
 	}
 	
@@ -59,5 +59,10 @@ public class Mesa {
 	
 	public synchronized void pensar (int indice) {	//FOI PENSAR
 		System.out.println("Filosofo "+indice+" esta pensando");
+		try{
+			Thread.sleep(2000);
+		}catch (Exception e) {
+			
+		}
 	}
 }
